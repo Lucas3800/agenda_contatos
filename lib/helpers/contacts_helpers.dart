@@ -1,5 +1,5 @@
 /// =============================
-/// Autor: Lucas Almeida de Abreu
+/// Author: Lucas Almeida de Abreu
 /// Date: 18/12/2018
 /// =============================
 /// Classe destinada a manipulação de dados através do banco sqlite
@@ -82,7 +82,7 @@ class ContactHelper {
     );
   }
 
-  Future<List> getAllConcats() async {
+  Future<List> getAllContacts() async {
     Database dbContact = await db;
     List listMap = await dbContact.rawQuery("SELECT * FROM $contactTable");
     List<Contact> listContact = List();
@@ -115,6 +115,8 @@ class Contact {
   String email; // Email do contato
   String phone; // Teleone do contato
   String img; // Caminho da foto perfil
+
+  Contact({this.name, this.email, this.phone, this.img});
 
   Contact.fromMap(Map map) {
     id = map[idColumn];
